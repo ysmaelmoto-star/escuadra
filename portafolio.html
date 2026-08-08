@@ -41,8 +41,6 @@
   a{color:inherit;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
   h1,h2,h3,.mono{font-family:'JetBrains Mono',monospace; letter-spacing:-0.01em;}
-
-  /* ---------- FONDO INTERACTIVO PERMANENTE ---------- */
   .bg-blueprint{
     position:fixed; inset:0; z-index:0; pointer-events:none;
     background:var(--navy);
@@ -67,7 +65,6 @@
     animation:gridDrift 18s linear infinite;
   }
   @keyframes gridDrift{ from{background-position:0 0;} to{background-position:76px 76px;} }
-
   .cad-crosshair{
     position:fixed; top:0; left:0; width:1px; height:1px;
     pointer-events:none; z-index:1; opacity:0; transition:opacity .2s ease;
@@ -87,10 +84,7 @@
   }
   @media (hover:none), (pointer:coarse){ .cad-crosshair{display:none;} }
   @media (prefers-reduced-motion:reduce){ .bg-drift{animation:none;} }
-
   main{position:relative; z-index:2;}
-
-  /* ---------- NAV ---------- */
   header.site{
     position:sticky; top:0; z-index:50;
     background:var(--navy);
@@ -116,7 +110,6 @@
     nav.links{gap:12px;}
     nav.links a span.long{display:none;}
   }
-
   .btn{
     display:inline-flex; align-items:center; gap:9px; padding:13px 20px; border-radius:var(--radius);
     font-weight:700; font-size:14.5px; text-decoration:none; cursor:pointer; border:none;
@@ -126,8 +119,6 @@
   .btn-primary{background:var(--wa); color:var(--white);}
   .btn-primary:hover{background:#278f43;}
   .btn svg{width:17px; height:17px; flex:none;}
-
-  /* ---------- BANNER ---------- */
   .banner{padding:64px 0 40px; color:var(--white); position:relative; overflow:hidden;}
   .compass-svg{
     position:absolute; right:30px; top:-10px;
@@ -150,8 +141,6 @@
   .eyebrow::before{content:""; width:22px; height:1px; background:var(--amber); display:inline-block;}
   .banner h1{font-size:clamp(28px,3.6vw,42px); font-weight:800; margin:0 0 14px; line-height:1.1;}
   .banner p{color:#C9D6E4; font-size:16px; max-width:60ch; margin:0;}
-
-  /* ---------- FILTROS ---------- */
   .filters-label{
     font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
     color:#8FA8C2; margin:0 0 10px;
@@ -178,8 +167,6 @@
   }
   .filter-btn-sub:hover{border-color:rgba(255,255,255,0.35); color:var(--white);}
   .filter-btn-sub.active{background:var(--red); border-color:var(--red); color:var(--white);}
-
-  /* ---------- MURO ---------- */
   .wall-section{padding-bottom:100px;}
   .log-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
   @media (max-width:920px){.log-grid{grid-template-columns:1fr 1fr;}}
@@ -206,6 +193,12 @@
     background:radial-gradient(circle at 50% 42%, rgba(227,166,62,0.22), transparent 65%);
   }
   .log-thumb svg{width:32%; height:32%; color:rgba(227,166,62,0.95); position:relative; z-index:1;}
+  .log-thumb img{
+    width:100%; height:100%; object-fit:cover; position:relative; z-index:1;
+  }
+  .thumb-fallback{
+    width:100%; height:100%; align-items:center; justify-content:center;
+  }
   .log-tag{
     position:absolute; top:10px; left:10px; background:var(--red); color:var(--white);
     font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; letter-spacing:.05em;
@@ -215,13 +208,10 @@
   .log-date{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--red); font-weight:700; letter-spacing:.04em;}
   .log-body h3{margin:0; font-size:15.5px; font-weight:700; line-height:1.3;}
   .log-body p{margin:0; font-size:13.5px; color:var(--ink-soft); flex:1;}
-
   .empty-state{
     text-align:center; padding:60px 20px; color:#8FA8C2;
     font-family:'JetBrains Mono',monospace; font-size:13.5px;
   }
-
-  /* ---------- LIGHTBOX ---------- */
   .lightbox{
     position:fixed; inset:0; z-index:100; background:rgba(10,17,28,0.92);
     display:none; align-items:center; justify-content:center; padding:24px;
@@ -260,11 +250,8 @@
   @media (max-width:640px){
     .lb-prev, .lb-next{width:32px; height:32px; font-size:15px;}
   }
-
-  /* ---------- FOOTER ---------- */
   footer{background:#101E31; color:#8FA8C2; padding:34px 0; font-size:13px; position:relative; z-index:2;}
   .footer-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center;}
-
   .float-wa{
     position:fixed; right:20px; bottom:20px; z-index:60;
     width:58px; height:58px; border-radius:50%;
@@ -279,22 +266,18 @@
     100%{box-shadow:0 8px 22px rgba(0,0,0,0.28), 0 0 0 0 rgba(47,168,79,0);}
   }
   @media (prefers-reduced-motion:reduce){ .float-wa{animation:none;} }
-
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 </style>
 </head>
 <body>
-
 <div class="bg-blueprint"></div>
 <div class="bg-drift"></div>
 <div class="cad-crosshair" id="cadCrosshair">
   <div class="h-line"></div><div class="v-line"></div><div class="dot"></div>
   <div class="coords" id="cadCoords">X 000 · Y 000</div>
 </div>
-
 <main>
-<!-- ================= NAV ================= -->
 <header class="site">
   <div class="nav-inner">
     <a href="index.html" class="brand">
@@ -314,8 +297,6 @@
     </nav>
   </div>
 </header>
-
-<!-- ================= BANNER ================= -->
 <section class="banner">
   <div class="wrap" style="position:relative;">
     <svg class="compass-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,33 +312,24 @@
     <p>Un muro con el trabajo real que hacemos: ejercicios, planos, informes, avances de tesis y proyectos entregados a nuestros estudiantes. Filtra por tema o haz clic en cualquier entrada para verla en grande.</p>
   </div>
 </section>
-
-<!-- ================= MURO ================= -->
 <section class="wall-section">
   <div class="wrap">
-    <p class="filters-label reveal">Área</p>
+    <p class="filters-label reveal">Materia</p>
     <div class="filters reveal" id="blockFilters"></div>
-    <div class="filters-sub reveal" id="subjectFilters" style="display:none;"></div>
     <div class="log-grid reveal" id="wallGrid"></div>
     <p class="empty-state" id="emptyState" style="display:none;">Todavía no hay entregas cargadas en esta categoría. Pronto se irán agregando.</p>
   </div>
 </section>
 </main>
-
 <footer>
   <div class="wrap footer-inner">
     <span>© <span id="year"></span> Escuadra — Asesoría académica.</span>
     <span>+51 986 554 707 · WhatsApp</span>
   </div>
 </footer>
-
 <a class="float-wa" href="https://wa.me/51986554707?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20asesor%C3%ADa%20acad%C3%A9mica" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.42-1.42a9.9 9.9 0 0 0 4.62 1.14h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.15-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.14.07.15.12.32.02.51-.09.2-.14.32-.28.49-.14.17-.29.37-.42.5-.14.14-.28.28-.12.55.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.17-.2.71-.83.9-1.11.19-.28.38-.23.63-.14.26.09 1.64.77 1.92.91.28.14.47.21.53.33.07.12.07.68-.17 1.36Z"/></svg>
 </a>
-
-<!-- ================================================================
-     LIGHTBOX (ventana emergente al hacer clic en una entrada)
-================================================================= -->
 <div class="lightbox" id="lightbox">
   <div class="lb-box">
     <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
@@ -372,33 +344,11 @@
     </div>
   </div>
 </div>
-
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* ============================================================
-   MURO DE PORTAFOLIO — lista de entradas
-   Para agregar una entrega nueva: copia un objeto y pégalo al
-   PRINCIPIO del arreglo PORTFOLIO. No hace falta tocar nada más.
-
-   date  -> texto libre, ej: "05 Ago 2026"
-   tag   -> categoría corta, ej: "AutoCAD", "Tesis", "Cálculo III"
-   title -> título breve del trabajo
-   desc  -> una o dos líneas de descripción / contexto
-   img   -> ruta a la foto real. Si subes fotos, colócalas en la
-            carpeta assets/img/portafolio/ (al lado de este archivo)
-            y escribe la ruta aquí, ej: "assets/img/portafolio/01.jpg".
-            Si lo dejas vacío (""), se muestra un ícono de marcador.
-============================================================= */
-/* ============================================================
-   BLOQUES DE MATERIAS — organiza todas las materias en grupos:
-   Matemáticas y Estadística, Ingeniería, Programas y Herramientas,
-   Contabilidad, Derecho, Tesis. El bloque "Otros" siempre aparece
-   en el filtro, por si acaso, aunque todavía no tenga entregas.
-   Puedes agregar, quitar o renombrar materias libremente dentro
-   de cada bloque. Si en una entrada usas una materia que NO
-   aparece en ninguna lista de aquí abajo, esa entrada cae
-   automáticamente en "Otros" — no se pierde ninguna.
+   BLOQUES DE MATERIAS
 ============================================================= */
 const CATEGORIES = {
   "Matemáticas y Estadística": [
@@ -432,8 +382,6 @@ const CATEGORIES = {
     "Redacción de tesis","Proyectos de investigación","Metodología de la investigación"
   ]
 };
-
-/* A qué bloque pertenece una materia. Si no la encuentra, va a "Otros". */
 function getBlock(tag){
   for (const block in CATEGORIES){
     if (CATEGORIES[block].includes(tag)) return block;
@@ -445,39 +393,33 @@ function getBlock(tag){
    MURO DE PORTAFOLIO — lista de entradas
    Para agregar una entrega nueva: copia un objeto y pégalo al
    PRINCIPIO del arreglo PORTFOLIO. No hace falta tocar nada más:
-   el bloque (Matemáticas, Ingeniería, Programas, etc.) se asigna
-   solo, según la lista de arriba. Si usas una materia nueva que
-   no está en ninguna lista, aparecerá bajo "Otros" — y si quieres
-   que en vez de eso se agrupe correctamente, solo añade esa
-   materia dentro del bloque que corresponda en CATEGORIES.
+   los botones de filtro de arriba ("Todos", "Mecánica de Suelos", etc.)
+   se generan solos según las materias que ya tengan al menos una
+   entrada — así que si agregás una materia nueva, aparece un
+   filtro nuevo automáticamente, y si todavía no cargaste nada de
+   una materia, esa no aparece.
 
    date  -> texto libre, ej: "05 Ago 2026"
    tag   -> materia específica, ej: "AutoCAD", "Mecánica de Suelos"
    title -> título breve del trabajo
    desc  -> una o dos líneas de descripción / contexto
-   img   -> ruta a la foto real. Si subes fotos, colócalas en la
-            carpeta assets/img/portafolio/ (al lado de este archivo)
-            y escribe la ruta aquí, ej: "assets/img/portafolio/01.jpg".
-            Si lo dejas vacío (""), se muestra un ícono de marcador.
+   img   -> pega aquí el link directo de la foto (subida a
+            postimg.cc, imgur, etc.), ej:
+            "https://i.postimg.cc/xxxxxxx/foto.jpg"
+            Si lo dejas vacío (""), se muestra un ícono en su lugar.
 ============================================================= */
 const PORTFOLIO = [
-  { date:"05 Ago 2026", tag:"AutoCAD",                title:"Plano estructural — proyecto de concreto armado", desc:"Modelado 2D/3D y detallado de armadura para entrega de Construcción.", img:"" },
-  { date:"04 Ago 2026", tag:"Métodos Numéricos",       title:"Resolución guiada — integrales múltiples", desc:"Ejercicios paso a paso previos a examen parcial.", img:"" },
-  { date:"03 Ago 2026", tag:"MATLAB",                  title:"Simulación de sistema dinámico", desc:"Script y gráficas para práctica de Métodos Numéricos.", img:"" },
-  { date:"02 Ago 2026", tag:"Redacción de tesis",      title:"Capítulo 3 — metodología", desc:"Estructura y redacción del diseño metodológico.", img:"" },
-  { date:"01 Ago 2026", tag:"SAP2000",                 title:"Análisis de pórtico — cargas sísmicas", desc:"Modelado y verificación para Análisis Estructural.", img:"" },
-  { date:"31 Jul 2026", tag:"Contabilidad",            title:"Estados financieros — caso práctico", desc:"Elaboración de estado de resultados y balance general.", img:"" },
-  { date:"29 Jul 2026", tag:"Derecho Civil",           title:"Informe jurídico — caso de estudio", desc:"Análisis y redacción de informe para curso de Derecho Civil.", img:"" },
-  { date:"27 Jul 2026", tag:"Revit",                   title:"Modelado BIM — proyecto de edificación", desc:"Desarrollo de modelo arquitectónico y planos de detalle.", img:"" },
-  { date:"25 Ago 2026", tag:"Simulink",                title:"Simulación de sistema de control", desc:"Diagrama de bloques y análisis de respuesta del sistema.", img:"" },
-  { date:"23 Jul 2026", tag:"Arena",                   title:"Simulación de línea de producción", desc:"Modelo de colas y análisis de resultados para Ingeniería Industrial.", img:"" },
-  { date:"22 Jul 2026", tag:"Mecánica de Suelos",      title:"Ensayo y análisis de propiedades del suelo", desc:"Cálculo de capacidad portante para cimentación.", img:"" },
-  { date:"20 Jul 2026", tag:"Probabilidades y Estadística", title:"Práctica calificada resuelta", desc:"Distribuciones de probabilidad y pruebas de hipótesis.", img:"" }
+  { date:"08 Ago 2026", tag:"Mecánica de Suelos", title:"Ensayo CBR — penetración vs carga", desc:"Curvas de penetración-carga y relación densidad seca vs CBR.", img:"https://i.postimg.cc/s25yvqk8/649159331-26227344580217924-6282069058383916015-n.jpg" },
+  { date:"07 Ago 2026", tag:"Mecánica de Suelos", title:"Ensayo granulométrico — cálculo de Cu", desc:"Tabulación de tamices ASTM y cálculo del coeficiente de uniformidad.", img:"https://i.postimg.cc/SKcqJ3BD/9061b8ea-d1d2-4999-abbe-2ab3ef32dd16.jpg" },
+  { date:"06 Ago 2026", tag:"Mecánica de Suelos", title:"Cálculo de Cu, Cc e índice de grupo", desc:"Determinación de coeficientes de uniformidad/curvatura y clasificación SUCS-AASHTO.", img:"https://i.postimg.cc/KYtFRw6p/asfasf.jpg" },
+  { date:"05 Ago 2026", tag:"Mecánica de Suelos", title:"Hoja de cálculo — coeficientes Cu y Cc", desc:"Plantilla en Excel para calcular D10, D30, D60 y los coeficientes de uniformidad y curvatura.", img:"https://i.postimg.cc/25nmVMsX/beda68f5-981d-4365-9cf4-d159926583f6.jpg" },
+  { date:"04 Ago 2026", tag:"Mecánica de Suelos", title:"Clasificación de suelo — sistema AASHTO", desc:"Determinación de grupo e índice de grupo según tabla de clasificación AASHTO.", img:"https://i.postimg.cc/g03dn19b/CDCD.jpg" },
+  { date:"03 Ago 2026", tag:"Mecánica de Suelos", title:"Análisis granulométrico — curva granulométrica", desc:"Cálculo de porcentaje retenido y que pasa por tamiz, con curva granulométrica.", img:"https://i.postimg.cc/YSQkhZ5P/dsfsf.jpg" },
+  { date:"02 Ago 2026", tag:"Mecánica de Suelos", title:"Clasificación de suelo — límites de Atterberg", desc:"Determinación de LL, LP e IP y clasificación SUCS mediante carta de plasticidad.", img:"https://i.postimg.cc/YSQkhTcH/fdsf.jpg" },
+  { date:"02 Ago 2026", tag:"Mecánica de Suelos", title:"Ensayo complementario — clasificación de suelos", desc:"Registro fotográfico adicional del ensayo, para respaldo del informe.", img:"https://i.postimg.cc/YSQkhTc7/sdfsfs.jpg" }
 ];
 
 const placeholderIcon = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.4"/><path d="M4 16l4.5-5 3.5 4 2.5-3L20 16" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor"/></svg>`;
-
-/* Ícono según el bloque de materia — para que las tarjetas sin foto se vean variadas y no "vacías" */
 const ICONS_BY_BLOCK = {
   "Matemáticas y Estadística": `<svg viewBox="0 0 24 24" fill="none"><path d="M6 5h11l-6 7 6 7H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   "Ingeniería": placeholderIcon,
@@ -489,70 +431,43 @@ const ICONS_BY_BLOCK = {
 };
 function iconFor(block){ return ICONS_BY_BLOCK[block] || placeholderIcon; }
 
-const wallGrid       = document.getElementById('wallGrid');
-const blockFiltersBox = document.getElementById('blockFilters');
-const subjectFiltersBox = document.getElementById('subjectFilters');
-const emptyState     = document.getElementById('emptyState');
+const wallGrid = document.getElementById('wallGrid');
+const filterRow = document.getElementById('blockFilters');
+const emptyState = document.getElementById('emptyState');
 
-/* Asigna el bloque a cada entrada una sola vez */
 PORTFOLIO.forEach(e => { e.block = getBlock(e.tag); });
-
-let activeBlock = 'Todos';
-let activeSubject = 'Todos';
+let activeFilter = 'Todos';
 let currentList = [];
 
-function renderBlockFilters(){
-  const blocks = ['Todos', ...Object.keys(CATEGORIES), 'Otros'];
-  blockFiltersBox.innerHTML = '';
-  blocks.forEach(block => {
+/* Solo genera un botón de filtro por cada materia que YA tiene
+   al menos una entrada cargada — nunca aparecen materias vacías. */
+function renderFilters(){
+  const subjectsPresent = [...new Set(PORTFOLIO.map(e => e.tag))];
+  const filters = ['Todos', ...subjectsPresent];
+  filterRow.innerHTML = '';
+  filters.forEach(f => {
     const btn = document.createElement('button');
-    btn.className = 'filter-btn' + (block === activeBlock ? ' active' : '');
-    btn.textContent = block;
-    btn.addEventListener('click', () => {
-      activeBlock = block;
-      activeSubject = 'Todos';
-      renderBlockFilters();
-      renderSubjectFilters();
-      renderWall();
-    });
-    blockFiltersBox.appendChild(btn);
+    btn.className = 'filter-btn' + (f === activeFilter ? ' active' : '');
+    btn.textContent = f;
+    btn.addEventListener('click', () => { activeFilter = f; renderFilters(); renderWall(); });
+    filterRow.appendChild(btn);
   });
 }
-
-function renderSubjectFilters(){
-  if (activeBlock === 'Todos'){
-    subjectFiltersBox.style.display = 'none';
-    subjectFiltersBox.innerHTML = '';
-    return;
-  }
-  const subjects = ['Todos', ...new Set(PORTFOLIO.filter(e => e.block === activeBlock).map(e => e.tag))];
-  subjectFiltersBox.innerHTML = '';
-  subjectFiltersBox.style.display = subjects.length > 1 ? 'flex' : 'none';
-  subjects.forEach(subject => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn-sub' + (subject === activeSubject ? ' active' : '');
-    btn.textContent = subject;
-    btn.addEventListener('click', () => { activeSubject = subject; renderSubjectFilters(); renderWall(); });
-    subjectFiltersBox.appendChild(btn);
-  });
-}
-
 function renderWall(){
-  currentList = PORTFOLIO.filter(e => {
-    const matchBlock = activeBlock === 'Todos' || e.block === activeBlock;
-    const matchSubject = activeSubject === 'Todos' || e.tag === activeSubject;
-    return matchBlock && matchSubject;
-  });
+  currentList = activeFilter === 'Todos' ? PORTFOLIO : PORTFOLIO.filter(e => e.tag === activeFilter);
   wallGrid.innerHTML = '';
   emptyState.style.display = currentList.length ? 'none' : 'block';
-
   currentList.forEach((entry, i) => {
     const card = document.createElement('button');
     card.className = 'log-card';
     card.innerHTML = `
-      <div class="log-thumb" ${entry.img ? `style="background-image:url('${entry.img}'); background-size:cover; background-position:center;"` : ''}>
+      <div class="log-thumb">
         <span class="log-tag">${entry.tag}</span>
-        ${entry.img ? '' : iconFor(entry.block)}
+        ${entry.img
+          ? `<img src="${entry.img}" alt="${entry.title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+             <div class="thumb-fallback" style="display:none;">${iconFor(entry.block)}</div>`
+          : `<div class="thumb-fallback" style="display:flex;">${iconFor(entry.block)}</div>`
+        }
       </div>
       <div class="log-body">
         <span class="log-date">${entry.date}</span>
@@ -563,12 +478,9 @@ function renderWall(){
     wallGrid.appendChild(card);
   });
 }
-
-renderBlockFilters();
-renderSubjectFilters();
+renderFilters();
 renderWall();
 
-/* ---- Lightbox ---- */
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbTag = document.getElementById('lbTag');
@@ -576,7 +488,6 @@ const lbDate = document.getElementById('lbDate');
 const lbTitle = document.getElementById('lbTitle');
 const lbDesc = document.getElementById('lbDesc');
 let lbIndex = 0;
-
 function openLightbox(i){
   lbIndex = i;
   renderLightbox();
@@ -585,10 +496,9 @@ function openLightbox(i){
 function renderLightbox(){
   const entry = currentList[lbIndex];
   if (!entry) return;
-  lbImg.style.backgroundImage = entry.img ? `url('${entry.img}')` : '';
-  lbImg.style.backgroundSize = entry.img ? 'cover' : '16px 16px, 16px 16px, cover';
-  lbImg.style.backgroundPosition = 'center';
-  lbImg.innerHTML = entry.img ? '' : iconFor(entry.block);
+  lbImg.innerHTML = entry.img
+    ? `<img src="${entry.img}" alt="${entry.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.remove();">`
+    : iconFor(entry.block);
   lbTag.textContent = entry.tag;
   lbDate.textContent = entry.date;
   lbTitle.textContent = entry.title;
@@ -605,7 +515,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
 });
 
-/* ---- Fondo interactivo: cruz que sigue el mouse en toda la página ---- */
 const crosshair = document.getElementById('cadCrosshair');
 const cadCoords = document.getElementById('cadCoords');
 if (crosshair && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
@@ -617,7 +526,6 @@ if (crosshair && window.matchMedia('(hover:hover) and (pointer:fine)').matches) 
   window.addEventListener('mouseleave', () => crosshair.classList.remove('active'));
 }
 
-/* ---- Scroll reveal ---- */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.08 });
