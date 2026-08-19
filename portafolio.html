@@ -356,30 +356,34 @@ const CATEGORIES = {
     "Matemática Computacional","Matemática Analítica","Álgebra Lineal","Cálculo I",
     "Estadística Descriptiva e Inferencial","Estadística Inferencial","Estadística Descriptiva","Probabilidades y Estadística",
     "Estadística para Negocios y Psicología","Métodos Numéricos","Geometría Analítica",
-    "Ecuaciones Diferenciales","Teoría de Decisiones"
+    "Ecuaciones Diferenciales","Teoría de Decisiones","Investigación de Operaciones"
   ],
   "Ingeniería": [
     "Física","Química General e Inorgánica","Mecánica de Fluidos","Hidráulica e Hidrología",
     "Resistencia de Materiales","Mecánica de Suelos","Estática y Dinámica",
     "Ingeniería Sismo-Resistente","Pavimentos","Tecnología del Concreto","Construcción",
     "Análisis Estructural","Planificación y Control de Obras","Ingeniería Geotécnica",
-    "Topografía - Vial - Ing. Tránsito","Concreto Armado","Topografía"
+    "Topografía - Vial - Ing. Tránsito","Concreto Armado","Topografía",
+    "Estructuras","Puentes","Metrados","Disposición de Planta","Ingeniería de Métodos","Ingeniería de Procesos"
   ],
   "Programas y Herramientas": [
     "AutoCAD","Civil 3D","Revit","SAP2000","MATLAB","Inventor","Mathcad","SolidWorks",
     "R-Studio","Arena","Simulink","Excel","Promodel","SPSS","JAMOVI","MEGASTAT","C++",
-    "FluidSIM","Bizagi"
+    "FluidSIM","Bizagi","QGIS","ArcGIS","LINGO"
   ],
   "Contabilidad": [
     "Contabilidad","Clasificación de Cuentas","Estados Financieros Básicos",
     "Interés Simple y Compuesto","Análisis de Costos","Flujos de Caja","Normas NIC y NIIF",
     "Planificación Tributaria","Toma de Decisiones Basadas en Costos"
   ],
+  "Economía y Finanzas": [
+    "Costos y Presupuesto","Finanzas Empresariales","Presupuesto Financiero","Ingeniería Económica"
+  ],
   "Derecho": [
     "Derecho Civil","Derecho Constitucional","Derecho Procesal"
   ],
   "Tesis": [
-    "Redacción de tesis","Proyectos de investigación","Metodología de la investigación"
+    "Redacción de tesis","Proyectos de investigación","Metodología de la investigación","Artículos Científicos"
   ]
 };
 function getBlock(tag){
@@ -409,6 +413,7 @@ function getBlock(tag){
             Si lo dejas vacío (""), se muestra un ícono en su lugar.
 ============================================================= */
 const PORTFOLIO = [
+
   { date:"08 Ago 2026", tag:"Estadística Descriptiva", title:"Trabajo de estadística — desarrollo completo con gráficos", desc:"Elaboración de trabajo de estadística con tablas de frecuencia, gráficos e interpretación de resultados.", img:"https://i.postimg.cc/nz4QndVK/2.jpg" },
   { date:"08 Ago 2026", tag:"Estadística Descriptiva", title:"Análisis de datos — variables, tablas y distribución de frecuencias", desc:"Desarrollo de análisis de datos con clasificación de variables, tablas de frecuencia e histograma.", img:"https://i.postimg.cc/Y96mtX2Q/3.jpg" },
   { date:"08 Ago 2026", tag:"Estadística Descriptiva", title:"Trabajo de estadística — informe con gráficos y tablas", desc:"Elaboración de informe estadístico con tablas de contingencia, gráficos de barras y diagramas circulares.", img:"https://i.postimg.cc/zBCRqdDF/4.jpg" },
@@ -546,8 +551,119 @@ const PORTFOLIO = [
   { date:"19 Ago 2026", tag:"Teoría de Decisiones", title:"Teoría de decisiones — desarrollo 4", desc:"Resolución de caso práctico de teoría de decisiones con criterios aplicados.", img:"https://i.postimg.cc/V6ngW15T/Whats-App-Image-2026-04-21-at-8-36-27-PM-(3).jpg" },
   { date:"19 Ago 2026", tag:"Teoría de Decisiones", title:"Teoría de decisiones — desarrollo 5", desc:"Resolución de caso práctico de teoría de decisiones con criterios aplicados.", img:"https://i.postimg.cc/tJb5rfVv/Whats-App-Image-2026-04-21-at-8-36-27-PM-(4).jpg" },
   { date:"19 Ago 2026", tag:"Teoría de Decisiones", title:"Teoría de decisiones — desarrollo 6", desc:"Resolución de caso práctico de teoría de decisiones con criterios aplicados.", img:"https://i.postimg.cc/Y073XVWK/Whats-App-Image-2026-04-21-at-8-36-27-PM-(5).jpg" },
-  { date:"19 Ago 2026", tag:"Teoría de Decisiones", title:"Teoría de decisiones — desarrollo 7", desc:"Resolución de caso práctico de teoría de decisiones con criterios aplicados.", img:"https://i.postimg.cc/2yYwHJZk/Whats-App-Image-2026-04-21-at-8-36-27-PM-(6).jpg" }
+  { date:"19 Ago 2026", tag:"Teoría de Decisiones", title:"Teoría de decisiones — desarrollo 7", desc:"Resolución de caso práctico de teoría de decisiones con criterios aplicados.", img:"https://i.postimg.cc/2yYwHJZk/Whats-App-Image-2026-04-21-at-8-36-27-PM-(6).jpg" },
+  { date:"19 Ago 2026", tag:"QGIS", title:"Mapa de susceptibilidad — nivel de deslizamiento Trujillo", desc:"Elaboración de mapa temático de susceptibilidad a deslizamientos en QGIS.", img:"" },
+  { date:"19 Ago 2026", tag:"ArcGIS", title:"Mapa de suceptibilidad — procesamiento espacial", desc:"Análisis espacial y cartografía temática desarrollada en ArcGIS.", img:"" },
+  { date:"19 Ago 2026", tag:"QGIS", title:"Delimitación de zona — procesamiento raster y vectorial", desc:"Procesamiento de capas raster y vectoriales para delimitación de zona de estudio.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 01", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 02", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 03", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 04", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 05", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 06", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 07", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 08", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 09", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 10", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 11", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 12", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 13", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 14", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Estructuras", title:"Análisis estructural — entrega 15", desc:"Desarrollo de cálculo estructural, planos y memoria de diseño.", img:"" },
+  { date:"19 Ago 2026", tag:"Artículos Científicos", title:"Artículo científico — redacción y formato", desc:"Redacción de artículo científico con normas APA y estructura académica.", img:"" },
+  { date:"19 Ago 2026", tag:"Artículos Científicos", title:"Artículo científico — revisión bibliográfica", desc:"Desarrollo de marco teórico y estado del arte para publicación.", img:"" },
+  { date:"19 Ago 2026", tag:"Tesis", title:"Tesis — capítulo de metodología", desc:"Estructuración del capítulo metodológico con enfoque cuantitativo/cualitativo.", img:"" },
+  { date:"19 Ago 2026", tag:"Tesis", title:"Tesis — análisis de resultados", desc:"Procesamiento y discusión de resultados de investigación.", img:"" },
+  { date:"19 Ago 2026", tag:"Tesis", title:"Tesis — propuesta de intervención", desc:"Diseño de propuesta y validación de instrumentos.", img:"" },
+  { date:"19 Ago 2026", tag:"Artículos Científicos", title:"Artículo científico — envío a revista indexada", desc:"Formato, adaptación y referencias para envío a revista científica indexada.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 01", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 02", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 03", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 04", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 05", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 06", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 07", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 08", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 09", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 10", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 11", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Costos y Presupuesto", title:"Costos y presupuesto — entrega 12", desc:"Elaboración de análisis de costos, presupuestos y estados financieros proyectados.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 01", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 02", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 03", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 04", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 05", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 06", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 07", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 08", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 09", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 10", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 11", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 12", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 13", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 14", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 15", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 16", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 17", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 18", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 19", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 20", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 21", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 22", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Contabilidad", title:"Registro contable — entrega 23", desc:"Desarrollo de asientos contables, libros y estados financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Presupuesto Financiero", title:"Presupuesto financiero — entrega 01", desc:"Elaboración de presupuesto de caja, proyecciones y flujos financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Presupuesto Financiero", title:"Presupuesto financiero — entrega 02", desc:"Elaboración de presupuesto de caja, proyecciones y flujos financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Presupuesto Financiero", title:"Presupuesto financiero — entrega 03", desc:"Elaboración de presupuesto de caja, proyecciones y flujos financieros.", img:"" },
+  { date:"19 Ago 2026", tag:"Disposición de Planta", title:"Disposición de planta — entrega 01", desc:"Diseño de layout, distribución de equipos y análisis de flujo.", img:"" },
+  { date:"19 Ago 2026", tag:"Disposición de Planta", title:"Disposición de planta — entrega 02", desc:"Diseño de layout, distribución de equipos y análisis de flujo.", img:"" },
+  { date:"19 Ago 2026", tag:"Disposición de Planta", title:"Disposición de planta — entrega 03", desc:"Diseño de layout, distribución de equipos y análisis de flujo.", img:"" },
+  { date:"19 Ago 2026", tag:"Excel", title:"Modelo en Excel — entrega 01", desc:"Desarrollo de hojas de cálculo, macros y modelado financiero.", img:"" },
+  { date:"19 Ago 2026", tag:"Excel", title:"Modelo en Excel — entrega 02", desc:"Desarrollo de hojas de cálculo, macros y modelado financiero.", img:"" },
+  { date:"19 Ago 2026", tag:"Excel", title:"Modelo en Excel — entrega 03", desc:"Desarrollo de hojas de cálculo, macros y modelado financiero.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Métodos", title:"Ingeniería de métodos — entrega 01", desc:"Análisis de tiempos, movimientos y mejora de procesos productivos.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Métodos", title:"Ingeniería de métodos — entrega 02", desc:"Análisis de tiempos, movimientos y mejora de procesos productivos.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Métodos", title:"Ingeniería de métodos — entrega 03", desc:"Análisis de tiempos, movimientos y mejora de procesos productivos.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Procesos", title:"Ingeniería de procesos — entrega 01", desc:"Diseño de procesos, diagramas de flujo y balances de materia.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Procesos", title:"Ingeniería de procesos — entrega 02", desc:"Diseño de procesos, diagramas de flujo y balances de materia.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Procesos", title:"Ingeniería de procesos — entrega 03", desc:"Diseño de procesos, diagramas de flujo y balances de materia.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Procesos", title:"Ingeniería de procesos — entrega 04", desc:"Diseño de procesos, diagramas de flujo y balances de materia.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería de Procesos", title:"Ingeniería de procesos — entrega 05", desc:"Diseño de procesos, diagramas de flujo y balances de materia.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Económica", title:"Ingeniería económica — entrega 01", desc:"Evaluación de proyectos, VAN, TIR y análisis de sensibilidad.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Económica", title:"Ingeniería económica — entrega 02", desc:"Evaluación de proyectos, VAN, TIR y análisis de sensibilidad.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Económica", title:"Ingeniería económica — entrega 03", desc:"Evaluación de proyectos, VAN, TIR y análisis de sensibilidad.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Económica", title:"Ingeniería económica — entrega 04", desc:"Evaluación de proyectos, VAN, TIR y análisis de sensibilidad.", img:"" },
+  { date:"19 Ago 2026", tag:"Investigación de Operaciones", title:"Investigación operativa — entrega 01", desc:"Modelado matemático, programación lineal y optimización.", img:"" },
+  { date:"19 Ago 2026", tag:"Investigación de Operaciones", title:"Investigación operativa — entrega 02", desc:"Modelado matemático, programación lineal y optimización.", img:"" },
+  { date:"19 Ago 2026", tag:"Matemática Discreta", title:"Matemática discreta — entrega 01", desc:"Lógica proposicional, conjuntos, grafos y combinatoria.", img:"" },
+  { date:"19 Ago 2026", tag:"Matemática Discreta", title:"Matemática discreta — entrega 02", desc:"Lógica proposicional, conjuntos, grafos y combinatoria.", img:"" },
+  { date:"19 Ago 2026", tag:"Metrados", title:"Metrados — entrega 01", desc:"Cálculo de metrados en obra, cubicación y presupuesto por cantidades.", img:"" },
+  { date:"19 Ago 2026", tag:"Metrados", title:"Metrados — entrega 02", desc:"Cálculo de metrados en obra, cubicación y presupuesto por cantidades.", img:"" },
+  { date:"19 Ago 2026", tag:"Metrados", title:"Metrados — entrega 03", desc:"Cálculo de metrados en obra, cubicación y presupuesto por cantidades.", img:"" },
+  { date:"19 Ago 2026", tag:"Metrados", title:"Metrados — entrega 04", desc:"Cálculo de metrados en obra, cubicación y presupuesto por cantidades.", img:"" },
+  { date:"19 Ago 2026", tag:"Metrados", title:"Metrados — entrega 05", desc:"Cálculo de metrados en obra, cubicación y presupuesto por cantidades.", img:"" },
+  { date:"19 Ago 2026", tag:"Puentes", title:"Diseño de puentes — entrega 01", desc:"Análisis estructural, diseño de superestructura y cimentaciones de puente.", img:"" },
+  { date:"19 Ago 2026", tag:"Puentes", title:"Diseño de puentes — entrega 02", desc:"Análisis estructural, diseño de superestructura y cimentaciones de puente.", img:"" },
+  { date:"19 Ago 2026", tag:"Puentes", title:"Diseño de puentes — entrega 03", desc:"Análisis estructural, diseño de superestructura y cimentaciones de puente.", img:"" },
+  { date:"19 Ago 2026", tag:"Puentes", title:"Diseño de puentes — entrega 04", desc:"Análisis estructural, diseño de superestructura y cimentaciones de puente.", img:"" },
+  { date:"19 Ago 2026", tag:"Puentes", title:"Diseño de puentes — entrega 05", desc:"Análisis estructural, diseño de superestructura y cimentaciones de puente.", img:"" },
+  { date:"19 Ago 2026", tag:"Resistencia de Materiales", title:"Resistencia de materiales — esfuerzos y deformaciones", desc:"Cálculo de esfuerzos normales, cortantes y deformaciones en elementos estructurales.", img:"" },
+  { date:"19 Ago 2026", tag:"Resistencia de Materiales", title:"Resistencia de materiales — vigas y columnas", desc:"Diseño de vigas y columnas por flexión, cortante y pandeo.", img:"" },
+  { date:"19 Ago 2026", tag:"Estática y Dinámica", title:"Estática — equilibrio de cuerpos rígidos", desc:"Análisis de equilibrio, diagramas de cuerpo libre y reacciones.", img:"" },
+  { date:"19 Ago 2026", tag:"Estática y Dinámica", title:"Dinámica — movimiento y fuerzas", desc:"Cálculo de velocidad, aceleración y fuerzas en sistemas en movimiento.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Sismo-Resistente", title:"Diseño sismo-resistente — entrega 01", desc:"Análisis sísmico, espectros de diseño y detalle de confinamiento.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Sismo-Resistente", title:"Diseño sismo-resistente — entrega 02", desc:"Análisis sísmico, espectros de diseño y detalle de confinamiento.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Sismo-Resistente", title:"Diseño sismo-resistente — entrega 03", desc:"Análisis sísmico, espectros de diseño y detalle de confinamiento.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Sismo-Resistente", title:"Diseño sismo-resistente — entrega 04", desc:"Análisis sísmico, espectros de diseño y detalle de confinamiento.", img:"" },
+  { date:"19 Ago 2026", tag:"Ingeniería Sismo-Resistente", title:"Diseño sismo-resistente — entrega 05", desc:"Análisis sísmico, espectros de diseño y detalle de confinamiento.", img:"" },
+  { date:"19 Ago 2026", tag:"SPSS", title:"Análisis en SPSS — entrega 01", desc:"Procesamiento estadístico, pruebas de hipótesis y regresión en SPSS.", img:"" },
+  { date:"19 Ago 2026", tag:"SPSS", title:"Análisis en SPSS — entrega 02", desc:"Procesamiento estadístico, pruebas de hipótesis y regresión en SPSS.", img:"" },
+  { date:"19 Ago 2026", tag:"SPSS", title:"Análisis en SPSS — entrega 03", desc:"Procesamiento estadístico, pruebas de hipótesis y regresión en SPSS.", img:"" },
+  { date:"19 Ago 2026", tag:"SPSS", title:"Análisis en SPSS — entrega 04", desc:"Procesamiento estadístico, pruebas de hipótesis y regresión en SPSS.", img:"" },
+  { date:"19 Ago 2026", tag:"SPSS", title:"Análisis en SPSS — entrega 05", desc:"Procesamiento estadístico, pruebas de hipótesis y regresión en SPSS.", img:"" },
+  { date:"19 Ago 2026", tag:"LINGO", title:"Optimización en LINGO — entrega 01", desc:"Modelado y solución de problemas de optimización con LINGO.", img:"" },
+  { date:"19 Ago 2026", tag:"LINGO", title:"Optimización en LINGO — entrega 02", desc:"Modelado y solución de problemas de optimización con LINGO.", img:"" }
 ];
+
 
 const placeholderIcon = `<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.4"/><path d="M4 16l4.5-5 3.5 4 2.5-3L20 16" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor"/></svg>`;
 const ICONS_BY_BLOCK = {
